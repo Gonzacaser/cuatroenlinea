@@ -1,64 +1,47 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Juego Cuatro En Linea - Adaptación del ambiente de trabajo
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Si sigue las instrucciones a continuación, podrá jugar al mítico cuatro en línea en su computadora programado en **PHP**. Se requieren dos jugadores que se enfrentarán localmente hasta que uno de los dos consiga ganar.
 
-## About Laravel
+## Requerimientos
+Para empezar, es _necesario_ que tenga instalado correctamente en su computadora:
+- **[Docker Desktop](https://www.docker.com/get-started/)**
+- **[DDEV](https://ddev.readthedocs.io/en/stable/)**
+- **[GIT](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git)**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Cada hipervinculo lo redireccionará a las páginas oficiales de cada programa. Simplemente siga las instrucciones de instalación dependiendo su sistema operativo.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Obtener el código
+Una vez instalados los requerimientos puede descargar el código para luego continuar con las configuraciones del juego, en este caso clonaremos el repositorio:
+1. En consola utilice <code>cd</code> hasta llegar a la ubicación donde desee.
+2. Allí utilice <code>mkdir "nombre"</code> para crear un directorio nuevo y asignarle un nombre. Luego, muévase al mismo utilizando <code>cd "nombre"</code> nuevamente.
+3. Utilice el comando <code>git clone https://github.com/Gonzacaser/cuatroenlinea</code> para clonar la carpeta _cuatroenlinea_, allí están todos los archivos de nuestro juego.
+4. Use <code>cd cuatroenlinea</code> una vez más para ingresar a la carpeta clonada.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Ejecutar Docker Desktop
+Es importante abrir Docker, seguir las instrucciones y asegurarse que se esté ejecutando antes de configurar DDEV.
 
-## Learning Laravel
+## Configurar DDEV
+Como este programa utiliza DDEV debe ser configurado manualmente para cada proyecto. Para ello, dentro de la misma carpeta:
+1. Primero hay que ingresar <code>ddev config</code> esto nos pedirá que ingresemos:
+    - Proyect Name: puede ser cualquiera, si se deja en blanco será _cuatroenlinea_.
+    - Docroot Location: este campo suele dejarse en blanco ya que los archivos del programa están en el mismo directorio.
+    - Proyect Type: en nuestro caso debe ser _**laravel**_
+2. Aunque ya deberíamos estar en condiciones de usar <code>ddev start</code> primero debemos instalar **composer** para ello ingresamos <code>ddev composer install</code> (Esto puede demorar un tiempo)
+3. Crear el archivo de ambiente para el proyecto **.env**. Para ello utilizamos <code>cp .env.example .env</code>
+4. Crear una clave de autenticación para el proyecto, basta con escribir <code>php artisan key:generate</code>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Correr el juego
+Si todo salió bien y no obtuvimos ningún mensaje de error finalmente estamos en condiciones de hacer <code>ddev start</code>. Debemos obtener una salida similar:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![image](https://user-images.githubusercontent.com/102709364/173168781-981b6cec-b6da-42fa-8474-888792d6e5a3.png)
 
-## Laravel Sponsors
+Ahora podemos hacer <code>CTRL + CLICK</code> en alguno de los dos links y seremos redireccionados a la página de **Laravel** en nuestro navegador:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![image](https://user-images.githubusercontent.com/102709364/173168825-269ffa9b-8cb0-4a05-a66a-5a43b2cae3d8.png)
 
-### Premium Partners
+_**Felicidades!**_ Una vez aquí podemos jugar al _4 En Linea_ simplemente agregando <code>/jugar/1</code> al final de la URL en mi caso <code>https://cuatroenlinea.ddev.site/jugar/1</code>:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![image](https://user-images.githubusercontent.com/102709364/173169009-ff904874-90ec-4a22-bdb4-a9c55a334c89.png)
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Cerrar la aplicación
+No se recomienda cerrar la terminal deteniendo los programas a la fuerza. Incluso algunos procesos podrían persistir en segundo plano. Por eso utilizaremos <code>ddev stop</code> con esto se nos indicará que se eliminan los contenedores, y una vez el proyecto sea detenido podremos utilizar <code>exit</code> y cerrar Docker Desktop y/o el navegador también.
