@@ -15,23 +15,23 @@ class ColorsQuantityTest extends TestCase
     public function test_colors_quantity_at_initial_status()
     {
         $response = $this->get('/jugar/1');
+        $response->assertStatus(200);
 
         $cuentaCantidadFichasRojas = preg_match_all('/<div class="bg-red/', $response->getContent());
         $cuentaCantidadFichasAzules = preg_match_all('/<div class="bg-sky/', $response->getContent());
 
         $this->assertTrue( ($cuentaCantidadFichasRojas == 1) && ($cuentaCantidadFichasAzules == 0));    
-        $response->assertStatus(200);
     }
 
 
     public function test_colors_quantity_when_two_full_lines()
     {
         $response = $this->get('/jugar/11223344556677');
+        $response->assertStatus(200);
 
         $cuentaCantidadFichasRojas = preg_match_all('/<div class="bg-red/', $response->getContent());
         $cuentaCantidadFichasAzules = preg_match_all('/<div class="bg-sky/', $response->getContent());
 
         $this->assertTrue( ($cuentaCantidadFichasRojas == 7) && ($cuentaCantidadFichasAzules == 7));    
-        $response->assertStatus(200);
     }
 }
