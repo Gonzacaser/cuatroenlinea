@@ -28,10 +28,35 @@ class Tablero implements tableroInterface {
         $this->ancho = $ancho;
         $this->alto = $alto;
         $this->limpiarTablero();
+
     }
 
     public function mostrarTablero(){
 
+        echo "\n" . str_repeat('~', $this->ancho) . "\n";
+        echo "Este es el tablero del juego";
+        echo "'n" . \str_repeat('~', $this->ancho . "\n");
+
+        for($i=0; $i<$this->alto; $i++){
+            if ($x==0) {
+                echo " \t" - $i . "\t";
+            }
+            else {
+                echo $i . "\t";
+            }
+
+
+        }
+
+        for($o=0; $o<$this->ancho; $o++){
+            echo $o . "\t";
+            for($k=0; $k<$this->alto; $k++){
+                echo $this->tablero[$o][$k]->getColour() . "\t";
+            }
+        
+        }
+    
+    
     }
 }
 
