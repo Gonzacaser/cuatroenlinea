@@ -38,7 +38,7 @@ class Tablero implements tableroInterface {
         echo "'n" . \str_repeat('~', $this->ancho . "\n");
 
         for($i=0; $i<$this->alto; $i++){
-            if ($x==0) {
+            if ($i==0) {
                 echo " \t" - $i . "\t";
             }
             else {
