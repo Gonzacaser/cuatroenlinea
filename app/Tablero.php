@@ -22,7 +22,7 @@ class Tablero implements tableroInterface {
     public function limpiarTablero() {
 
         for ($x=0; $x<$this->ancho; $x++) {
-            for ($y=0; $y<$this->altura; $y++) {
+            for ($y=0; $y<$this->alto; $y++) {
                 $this->tablero[$x][$y] = new Ficha("blanco");
             }
         }
